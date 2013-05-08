@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Google Analytics Demo</title>
+
+	<script data-main="main" src="../components/requirejs/require.js"></script>
+	<script>
+		requirejs.config({
+			baseUrl: "",
+			config:{
+				'GoogleAnalytics': {
+					'id' : 'UA-27718974-1'
+				}
+			},
+			paths:{
+				'GoogleAnalytics' : '../src/GoogleAnalytics'
+			}
+		});
+	</script>
+</head>
+<body>
+	<h1>GoogleAnalytics</h1>
+</body>
+</html>

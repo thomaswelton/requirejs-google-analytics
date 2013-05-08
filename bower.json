@@ -1,0 +1,13 @@
+{
+  "name": "bower-google-analytics",
+  "version": "0.0.0",
+  "main": ["dist/GoogleAnalytics.js", "dist/GoogleAnalytics.css"],
+  "devDependencies": {
+    "requirejs": "git://github.com/jrburke/requirejs"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}
