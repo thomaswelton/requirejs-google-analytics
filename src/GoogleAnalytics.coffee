@@ -3,15 +3,20 @@ define ['module'], (module) ->
 		constructor: (@config) ->
 			console.log 'GoogleAnalytics Class', @config
 
+			src = (if 'https:' is document.location.protocol then 'https://ssl' else 'http://www') + '.google-analytics.com/ga'
+
+			requirejs.config
+				paths:
+					'ga': src
+				shim:
+					'ga':
+						exports: '_gaq'
+
 			@injectScript()
 				
 
 		injectScript: (cb) =>
-			src = (if 'https:' is document.location.protocol then 'https://ssl' else 'http://www') + '.google-analytics.com/ga.js'
-
-			requirejs [src], () =>
-				_gaq = window._gaq
-
+			requirejs ['ga'], (_gaq) =>
 				_gaq.push ['_setAccount', @config.id]
 				_gaq.push ['_trackPageview']
 
