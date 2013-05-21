@@ -10,7 +10,7 @@ module.exports = (grunt) =>
 						expand: true
 						cwd: 'src'
 						src: ['GoogleAnalytics.coffee']
-						dest: 'src'
+						dest: 'dist'
 						ext: '.js'
 					},
 					{
@@ -63,7 +63,7 @@ module.exports = (grunt) =>
 			
 			coffee:
 				files: ['src/**/*.coffee']
-				tasks: ['coffee']
+				tasks: ['coffee', 'requirejs']
 
 		connect:
 			server:
@@ -87,10 +87,20 @@ module.exports = (grunt) =>
 					logLevel: 1
 					name: "GoogleAnalytics"
 					out: "dist/GoogleAnalytics.js"
-					baseUrl: "src"
-					paths:{
-						'GoogleAnalytics': '../src/GoogleAnalytics'
-					}
+					baseUrl: "dist"
+					paths:
+						'GoogleAnalytics': '../dist/GoogleAnalytics'
+
+		shell:
+			bower_cache:
+				command: 'bower cache-clean'
+				options:
+					stdout: true
+
+			bower:
+				command: 'bower install'
+				options:
+					stdout: true
 
 		
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
@@ -101,8 +111,9 @@ module.exports = (grunt) =>
 	grunt.loadNpmTasks 'grunt-contrib-connect'
 	grunt.loadNpmTasks 'grunt-contrib-requirejs'
 	grunt.loadNpmTasks 'grunt-exec'
+	grunt.loadNpmTasks 'grunt-shell'
 	
-	grunt.registerTask 'default', ['compile', 'requirejs', 'uglify']
+	grunt.registerTask 'default', ['shell:bower', 'compile', 'requirejs', 'uglify']
 
 	grunt.registerTask 'server', ['exec:server', 'exec:open', 'watch']
 

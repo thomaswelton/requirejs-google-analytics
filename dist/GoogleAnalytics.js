@@ -7,21 +7,29 @@
 
     GoogleAnalytics = (function() {
       function GoogleAnalytics(config) {
+        var src;
+
         this.config = config;
         this.injectScript = __bind(this.injectScript, this);
         console.log('GoogleAnalytics Class', this.config);
+        src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga';
+        requirejs.config({
+          paths: {
+            'ga': src
+          },
+          shim: {
+            'ga': {
+              exports: '_gaq'
+            }
+          }
+        });
         this.injectScript();
       }
 
       GoogleAnalytics.prototype.injectScript = function(cb) {
-        var src,
-          _this = this;
+        var _this = this;
 
-        src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        return requirejs([src], function() {
-          var _gaq;
-
-          _gaq = window._gaq;
+        return requirejs(['ga'], function(_gaq) {
           _gaq.push(['_setAccount', _this.config.id]);
           return _gaq.push(['_trackPageview']);
         });
