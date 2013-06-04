@@ -3,22 +3,20 @@ define ['module'], (module) ->
 		constructor: (@config) ->
 			console.log 'GoogleAnalytics Class', @config
 
-			src = (if 'https:' is document.location.protocol then 'https://ssl' else 'http://www') + '.google-analytics.com/ga'
-
 			requirejs.config
 				paths:
-					'ga': src
+					'ga': '//www.google-analytics.com/analytics'
 				shim:
 					'ga':
-						exports: '_gaq'
+						exports: 'ga'
 
 			@injectScript()
 				
 
 		injectScript: (cb) =>
-			requirejs ['ga'], (_gaq) =>
-				_gaq.push ['_setAccount', @config.id]
-				_gaq.push ['_trackPageview']
+			requirejs ['ga'], (ga) =>
+				ga 'create', @config.id
+				ga 'send', 'pageview'
 
 	## Create and return a new instance of GoogleAnalytics
 	## module.config() returns a JSON object as defined in requirejs.config.GoogleAnalytics
