@@ -2,6 +2,9 @@
     "name": "bower-google-analytics"
   , "description": "Google Analytics loader"
   , "version": "0.0.0"
+  , "scripts": {
+    "test": "grunt travis --verbose"
+  }
   , "devDependencies": {
       "grunt": ">= 0.4.1"
     , "bower": ">= 0.9.x"
