@@ -17,7 +17,7 @@
     , "bower": ">= 0.9.x"
     , "grunt-bower-task": ">= 0.2.3"
     , "grunt-contrib-coffee": ">= 0.6.6"
-    , "grunt-regarde": ">= 0.1.1"
+    , "grunt-contrib-watch": "~0.4.4"
     , "grunt-contrib-connect": "~0.3.0"
     , "grunt-exec": "~0.4.0"
   }
