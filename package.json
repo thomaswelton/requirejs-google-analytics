@@ -14,7 +14,7 @@
   }
   , "devDependencies": {
       "grunt": ">= 0.4.1"
-    , "bower": ">= 0.9.x"
+    , "bower": "~0.x"
     , "grunt-bower-task": ">= 0.2.3"
     , "grunt-contrib-coffee": ">= 0.6.6"
     , "grunt-contrib-watch": "~0.4.4"

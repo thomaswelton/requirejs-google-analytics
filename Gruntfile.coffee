@@ -3,7 +3,9 @@ module.exports = (grunt) =>
 		pkg: grunt.file.readJSON 'package.json'
 
 		bower:
-			install: {}
+			install:
+				options:
+					targetDir: 'demo/components'
 
 		## Compile coffeescript
 		coffee:
@@ -19,7 +21,7 @@ module.exports = (grunt) =>
 					{
 						expand: true
 						cwd: 'src'
-						src: ['main.coffee']
+						src: ['*.coffee']
 						dest: 'demo'
 						ext: '.js'
 					}
@@ -35,7 +37,7 @@ module.exports = (grunt) =>
 				options:
 					keepalive: true
 					port: 9001
-					base: ''
+					base: 'demo'
 
 		exec:
 			server:
