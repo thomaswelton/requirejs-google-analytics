@@ -1,5 +1,5 @@
 {
-  "name": "bower-google-analytics"
+  "name": "requirejs-google-analytics"
   , "version": "0.1.0"
   , "main": ["dist/GoogleAnalytics.js"]
   , "devDependencies": {
