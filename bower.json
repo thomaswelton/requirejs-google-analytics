@@ -3,7 +3,8 @@
   , "version": "0.1.0"
   , "main": ["dist/GoogleAnalytics.js"]
   , "devDependencies": {
-    "requirejs": "git://github.com/jrburke/requirejs"
+      "requirejs": "git://github.com/jrburke/requirejs"
+    , "EventEmitter" : "git://github.com/thomaswelton/bower-event-emitter.git#0.0.1"
   }
   , "ignore": [
       "**/.*"
