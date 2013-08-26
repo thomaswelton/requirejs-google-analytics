@@ -1,6 +1,7 @@
 #requirejs-google-analytics
 [![Build Status](https://travis-ci.org/thomaswelton/requirejs-google-analytics.png)](https://travis-ci.org/thomaswelton/requirejs-google-analytics)
 [![Dependency Status](https://david-dm.org/thomaswelton/requirejs-google-analytics.png)](https://david-dm.org/thomaswelton/requirejs-google-analytics)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/thomaswelton/requirejs-google-analytics/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 Asynchronously load Google Analytics using requirejs.
 ## Setup
