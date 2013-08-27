@@ -4,7 +4,9 @@
   , "main": ["dist/GoogleAnalytics.js"]
   , "devDependencies": {
       "requirejs": "2.1.*"
-    , "EventEmitter" : "git://github.com/thomaswelton/bower-event-emitter.git#0.0.1"
+  }
+  , "dependencies": {
+      "EventEmitter" : "git://github.com/thomaswelton/bower-event-emitter.git#0.0.1"
   }
   , "ignore": [
       "**/.*"
