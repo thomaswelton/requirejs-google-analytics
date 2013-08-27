@@ -25,7 +25,7 @@ Instalation via bower
 ```json
 {
   "dependencies": {
-  	"GoogleAnalytics": "git://github.com/thomaswelton/bower-google-analytics.git#0.1.1"
+  	"GoogleAnalytics": "git://github.com/thomaswelton/bower-google-analytics.git"
   }
 }
 ```
