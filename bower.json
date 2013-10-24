@@ -6,7 +6,7 @@
       "requirejs": "2.1.*"
   }
   , "dependencies": {
-      "EventEmitter" : "git://github.com/thomaswelton/bower-event-emitter.git#0.0.1"
+      "event-emitter" : "0.1.0"
   }
   , "ignore": [
       "**/.*"
