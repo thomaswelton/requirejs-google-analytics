@@ -3,7 +3,7 @@ define ['module', 'EventEmitter'], (module, EventEmitter) ->
 		constructor: (@config) ->
 			super()
 
-			console.log 'GoogleAnalytics Class', @config
+			console.log 'Running Google Analytics', @config
 
 			requirejs.config
 				paths:
@@ -15,13 +15,13 @@ define ['module', 'EventEmitter'], (module, EventEmitter) ->
 			@injectScript()
 
 		injectScript: (cb) =>
-			requirejs ['ga'], (@ga) =>
-				ga 'create', @config.id
+			require ['ga'], (@ga) =>
+				ga 'create', @config.id, @config.fields
 				ga 'send', 'pageview'
 
 				@fireEvent 'gaReady', ga
 
-		onReady: (cb) =>
+		ready: (cb) =>
 			if @ga?
 				cb @ga
 			else
@@ -29,7 +29,7 @@ define ['module', 'EventEmitter'], (module, EventEmitter) ->
 					cb ga
 
 		trackEvent: (category, action, label, value ) =>
-			@onReady (ga) ->
+			@ready (ga) ->
 				ga('send', 'event', category, action, label, value)
 
 	## Create and return a new instance of GoogleAnalytics

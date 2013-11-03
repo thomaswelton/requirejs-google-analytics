@@ -1,5 +1,6 @@
 node_modules/
 .DS_Store
+/bower_components/
 /components/
 /demo/components/
 /lib/

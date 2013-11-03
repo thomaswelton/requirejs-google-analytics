@@ -20,7 +20,7 @@ requirejs.config({
 
 ## Installation
 
-Instalation via bower
+Installation via bower
 
 ```json
 {
