@@ -3,7 +3,7 @@ define ['module', 'EventEmitter'], (module, EventEmitter) ->
 		constructor: (@config) ->
 			super()
 
-			console.log 'GoogleAnalytics Class', @config
+			console.log 'Running Google Analytics', @config
 
 			requirejs.config
 				paths:
