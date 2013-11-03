@@ -5,17 +5,16 @@
 
   define(['module', 'EventEmitter'], function(module, EventEmitter) {
     var GoogleAnalytics;
-
     GoogleAnalytics = (function(_super) {
       __extends(GoogleAnalytics, _super);
 
       function GoogleAnalytics(config) {
         this.config = config;
         this.trackEvent = __bind(this.trackEvent, this);
-        this.onReady = __bind(this.onReady, this);
+        this.ready = __bind(this.ready, this);
         this.injectScript = __bind(this.injectScript, this);
         GoogleAnalytics.__super__.constructor.call(this);
-        console.log('GoogleAnalytics Class', this.config);
+        console.log('Running Google Analytics', this.config);
         requirejs.config({
           paths: {
             'ga': '//www.google-analytics.com/analytics'
@@ -31,18 +30,16 @@
 
       GoogleAnalytics.prototype.injectScript = function(cb) {
         var _this = this;
-
-        return requirejs(['ga'], function(ga) {
+        return require(['ga'], function(ga) {
           _this.ga = ga;
-          ga('create', _this.config.id);
+          ga('create', _this.config.id, _this.config.fields);
           ga('send', 'pageview');
           return _this.fireEvent('gaReady', ga);
         });
       };
 
-      GoogleAnalytics.prototype.onReady = function(cb) {
+      GoogleAnalytics.prototype.ready = function(cb) {
         var _this = this;
-
         if (this.ga != null) {
           return cb(this.ga);
         } else {
@@ -53,7 +50,7 @@
       };
 
       GoogleAnalytics.prototype.trackEvent = function(category, action, label, value) {
-        return this.onReady(function(ga) {
+        return this.ready(function(ga) {
           return ga('send', 'event', category, action, label, value);
         });
       };

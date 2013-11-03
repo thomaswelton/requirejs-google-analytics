@@ -15,7 +15,7 @@ define ['module', 'EventEmitter'], (module, EventEmitter) ->
 			@injectScript()
 
 		injectScript: (cb) =>
-			requirejs ['ga'], (@ga) =>
+			require ['ga'], (@ga) =>
 				ga 'create', @config.id, @config.fields
 				ga 'send', 'pageview'
 
