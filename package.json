@@ -1,7 +1,7 @@
 {
     "name": "requirejs-google-analytics"
   , "description": "Google Analytics loader"
-  , "version": "0.1.6"
+  , "version": "0.1.5"
   , "scripts": {
     "test": "grunt travis --verbose"
   }
