@@ -21,7 +21,7 @@ define ['module', 'EventEmitter'], (module, EventEmitter) ->
 
 				@fireEvent 'gaReady', ga
 
-		onReady: (cb) =>
+		ready: (cb) =>
 			if @ga?
 				cb @ga
 			else
@@ -29,7 +29,7 @@ define ['module', 'EventEmitter'], (module, EventEmitter) ->
 					cb ga
 
 		trackEvent: (category, action, label, value ) =>
-			@onReady (ga) ->
+			@ready (ga) ->
 				ga('send', 'event', category, action, label, value)
 
 	## Create and return a new instance of GoogleAnalytics
