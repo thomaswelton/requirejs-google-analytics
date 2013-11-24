@@ -1,6 +1,8 @@
 <!DOCTYPE  html>
 <html>
   <head>
+    <meta charset="utf-8">
+    
     <title>doc</title>
     <style>
       /*github.com style (c) Vasily Polovnyov <vast@whiteants.net>*/
@@ -110,8 +112,44 @@
     </style>
   </head>
   <body>  
-    <h1>bower-google-analytics</h1>
-<p>Simple google analytics loader. </p>
+    <h1 id="requirejs-google-analytics">requirejs-google-analytics</h1>
+<p><a href="https://travis-ci.org/thomaswelton/requirejs-google-analytics"><img src="https://travis-ci.org/thomaswelton/requirejs-google-analytics.png" alt="Build Status"></a>
+<a href="https://david-dm.org/thomaswelton/requirejs-google-analytics"><img src="https://david-dm.org/thomaswelton/requirejs-google-analytics.png" alt="Dependency Status"></a>
+<a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/thomaswelton/requirejs-google-analytics/trend.png" alt="Bitdeli Badge"></a></p>
+<p>Asynchronously load Google Analytics using requirejs.</p>
+<h2 id="setup">Setup</h2>
+<p>This module utilises requirejs module configuration. It requires the following JS to be added to the page</p>
+<pre><code class="lang-javascript">requirejs.config({
+    config:{
+        &#39;GoogleAnalytics&#39;: {
+            &#39;id&#39; : &#39;ACCOUNT_ID&#39;
+        }
+    }
+});</code></pre>
+<h2 id="installation">Installation</h2>
+<p>Installation via bower</p>
+<pre><code class="lang-json">{
+  &quot;dependencies&quot;: {
+      &quot;GoogleAnalytics&quot;: &quot;git://github.com/thomaswelton/bower-google-analytics.git&quot;
+  }
+}</code></pre>
+<h3 id="usage">Usage</h3>
+<h4 id="googleanalytics-onready-cb-">GoogleAnalytics.onReady(cb)</h4>
+<ul>
+<li>cb - (function) Callback to fire when Google Analytic is fully loaded</li>
+</ul>
+<pre><code class="lang-javascript">GoogleAnalytics.onReady(function(ga){
+    // GA is fully loaded
+    console.log(ga);
+});</code></pre>
+<h4 id="googleanalytics-trackevent-category-action-label-value-">GoogleAnalytics.trackEvent(category, action, label, value )</h4>
+<ul>
+<li>category - Typically the object that was interacted with (e.g. button) - required</li>
+<li>action - The type of interaction (e.g. click) - required</li>
+<li>label - Useful for categorizing events (e.g. nav buttons)</li>
+<li>value - Values must be non-negative. Useful to pass counts (e.g. 4 times)</li>
+</ul>
+<p>Custom event tracking (<a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events">https://developers.google.com/analytics/devguides/collection/analyticsjs/events</a>)</p>
 
   </body>
 </html>

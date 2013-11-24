@@ -1,4 +1,5 @@
 (function() {
+  'use strict';
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -15,7 +16,7 @@
         this.injectScript = __bind(this.injectScript, this);
         GoogleAnalytics.__super__.constructor.call(this);
         console.log('Running Google Analytics', this.config);
-        requirejs.config({
+        require.config({
           paths: {
             'ga': '//www.google-analytics.com/analytics'
           },
@@ -28,7 +29,7 @@
         this.injectScript();
       }
 
-      GoogleAnalytics.prototype.injectScript = function(cb) {
+      GoogleAnalytics.prototype.injectScript = function() {
         var _this = this;
         return require(['ga'], function(ga) {
           _this.ga = ga;
@@ -39,7 +40,6 @@
       };
 
       GoogleAnalytics.prototype.ready = function(cb) {
-        var _this = this;
         if (this.ga != null) {
           return cb(this.ga);
         } else {

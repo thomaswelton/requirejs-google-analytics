@@ -1,24 +1,36 @@
 {
-    "name": "requirejs-google-analytics"
-  , "description": "Google Analytics loader"
-  , "version": "0.1.5"
-  , "scripts": {
+  "name": "requirejs-google-analytics",
+  "description": "Google Analytics loader",
+  "version": "0.1.7",
+  "scripts": {
     "test": "grunt travis --verbose"
-  }
-  , "engines": {
-      "node": ">=0.8"
-  }
-  , "repository": {
-      "type": "git",
-      "url": "https://github.com/thomaswelton/requirejs-google-analytics.git"
-  }
-  , "devDependencies": {
-      "grunt": ">= 0.4.1"
-    , "bower": "~0.x"
-    , "grunt-bower-task": ">= 0.2.3"
-    , "grunt-contrib-coffee": ">= 0.6.6"
-    , "grunt-contrib-watch": "~0.4.4"
-    , "grunt-contrib-connect": "~0.3.0"
-    , "grunt-exec": "~0.4.0"
-  }
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomaswelton/requirejs-google-analytics.git"
+  },
+  "devDependencies": {
+    "bower": "~1.2.7",
+    "grunt": "~0.4.1",
+    "grunt-bower-task": "~0.3.4",
+    "grunt-coffeelint": "0.0.7",
+    "grunt-concurrent": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-markdown": "~0.4.0",
+    "grunt-mocha-phantomjs": "~0.3.1",
+    "load-grunt-tasks": "~0.2.0",
+    "time-grunt": "~0.2.1"
+  },
+  "demo": "demo",
+  "dist": "dist",
+  "src": "src",
+  "temp": ".tmp",
+  "test": "test"
 }

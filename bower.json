@@ -1,16 +1,21 @@
 {
-  "name": "requirejs-google-analytics"
-  , "version": "0.1.5"
-  , "main": ["dist/GoogleAnalytics.js"]
-  , "devDependencies": {
-      "requirejs": "2.1.*"
-  }
-  , "dependencies": {
-      "event-emitter" : "0.1.0"
-  }
-  , "ignore": [
-      "**/.*"
-    , "node_modules"
-    , "components"
+  "name": "requirejs-google-analytics",
+  "version": "0.1.6",
+  "main": [
+    "dist/GoogleAnalytics.js"
+  ],
+  "devDependencies": {
+    "chai": "~1.8.1",
+    "mocha": "~1.14.0",
+    "requirejs": "~2.1.9",
+    "sinonjs": "~1.7.3"
+  },
+  "dependencies": {
+    "event-emitter": "0.1.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
   ]
 }

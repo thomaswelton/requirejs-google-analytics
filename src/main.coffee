@@ -1,3 +1,5 @@
+'use strict'
+
 require.config
     config:
         # Google Universal Analytics:
@@ -8,10 +10,10 @@ require.config
             fields:
                 name: 'MyTracker'
     paths:
-        EventEmitter : 'components/event-emitter/EventEmitter'
+        EventEmitter : 'event-emitter/dist/EventEmitter'
         GoogleAnalytics : 'GoogleAnalytics'
 
 require ['GoogleAnalytics'], (GoogleAnalytics) ->
     GoogleAnalytics.ready (ga) ->
-       # GA is fully loaded
-       console.log ga
+        # GA is fully loaded
+        console.log ga
