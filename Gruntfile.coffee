@@ -46,18 +46,16 @@ module.exports = (grunt) =>
 			open:
 				command: 'open http://localhost:9001/'
 
-		
+
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
 	grunt.loadNpmTasks 'grunt-contrib-connect'
 	grunt.loadNpmTasks 'grunt-exec'
 	grunt.loadNpmTasks 'grunt-bower-task'
-	
+
 	grunt.registerTask 'default', ['bower', 'compile']
 	grunt.registerTask 'travis', 'Travis build tasks', ['default']
 
 	grunt.registerTask 'server', ['exec:server', 'exec:open', 'watch']
 
-	grunt.registerTask 'commit', ['default', 'git']
-	
 	grunt.registerTask 'compile', 'Compile coffeescript', ['coffee']
