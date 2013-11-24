@@ -70,6 +70,9 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/advance
 Ready Event Queue
 -----------------
 
+Collect callbacks to be called once Google Analytics loads. Once loaded then
+call the callbacks straight away.
+
             ready: (cb) =>
                 if @ga
                     cb @ga
