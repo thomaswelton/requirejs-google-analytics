@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Mocha Spec Runner</title>
+    <link href="mocha/mocha.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="mocha/mocha.js"></script>
+    <script src="chai/chai.js"></script>
+    <script src="sinonjs/sinon.js"></script>
+    <script src="requirejs/require.js"></script>
+    <script>
+        (function(){
+            'use strict'
+            mocha.setup('bdd');
+
+            require.config({
+                config: {
+                    GA: {
+                        id: 'UA-XXXX-Y'
+                    }
+                },
+                paths: {
+                    EventEmitter: 'event-emitter/dist/EventEmitter',
+                    GA: 'GoogleAnalytics'
+                }
+            });
+
+            require(['GA'], function (GA) {
+                require(['spec/test'], function () {
+                    console.log('Testing Google Analytics');
+                    if (window.mochaPhantomJS) {
+                        mochaPhantomJS.run();
+                    } else {
+                        mocha.run();
+                    }
+                });
+            });
+        })();
+    </script>
+  </body>
+</html>

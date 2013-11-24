@@ -209,7 +209,7 @@ module.exports = (grunt) =>
         'clean:temp'
         'concurrent:test'
         'connect:test'
-        #'mocha_phantomjs'
+        'mocha_phantomjs'
     ]
 
     grunt.registerTask 'build', [

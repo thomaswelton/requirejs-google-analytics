@@ -115,41 +115,144 @@
     <h1 id="requirejs-google-analytics">requirejs-google-analytics</h1>
 <p><a href="https://travis-ci.org/thomaswelton/requirejs-google-analytics"><img src="https://travis-ci.org/thomaswelton/requirejs-google-analytics.png" alt="Build Status"></a>
 <a href="https://david-dm.org/thomaswelton/requirejs-google-analytics"><img src="https://david-dm.org/thomaswelton/requirejs-google-analytics.png" alt="Dependency Status"></a>
+<a href="https://david-dm.org/thomaswelton/requirejs-google-analytics#info=devDependencies"><img src="https://david-dm.org/thomaswelton/requirejs-google-analytics/dev-status.png" alt="DevDependency Status"></a>
 <a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/thomaswelton/requirejs-google-analytics/trend.png" alt="Bitdeli Badge"></a></p>
 <p>Asynchronously load Google Analytics using requirejs.</p>
 <h2 id="setup">Setup</h2>
 <p>This module utilises requirejs module configuration. It requires the following JS to be added to the page</p>
 <pre><code class="lang-javascript">requirejs.config({
-    config:{
-        &#39;GoogleAnalytics&#39;: {
+    config: {
+        &#39;GA&#39;: {
             &#39;id&#39; : &#39;ACCOUNT_ID&#39;
         }
+    },
+    paths: {
+        EventEmitter: &#39;bower_components/event-emitter/dist/EventEmitter&#39;
+        GA: &#39;bower_components/requirejs-google-analytics/dist/GoogleAnalytics&#39;
     }
 });</code></pre>
 <h2 id="installation">Installation</h2>
 <p>Installation via bower</p>
 <pre><code class="lang-json">{
   &quot;dependencies&quot;: {
-      &quot;GoogleAnalytics&quot;: &quot;git://github.com/thomaswelton/bower-google-analytics.git&quot;
+      &quot;requirejs-google-analytics&quot;: &quot;~0.1.7&quot;
   }
 }</code></pre>
-<h3 id="usage">Usage</h3>
-<h4 id="googleanalytics-onready-cb-">GoogleAnalytics.onReady(cb)</h4>
+<h2 id="usage">Usage</h2>
+<h3 id="ga-ready-cb-">GA.ready(cb)</h3>
 <ul>
-<li>cb - (function) Callback to fire when Google Analytic is fully loaded</li>
+<li>cb - (function) Callback to fire when Google Analytics is fully loaded</li>
 </ul>
-<pre><code class="lang-javascript">GoogleAnalytics.onReady(function(ga){
-    // GA is fully loaded
-    console.log(ga);
+<pre><code class="lang-javascript">require([&#39;GA&#39;], function (GA) {
+    GA.ready(function (ga) {
+        // GA is fully loaded
+        console.log(ga);
+    });
 });</code></pre>
-<h4 id="googleanalytics-trackevent-category-action-label-value-">GoogleAnalytics.trackEvent(category, action, label, value )</h4>
+<h3 id="ga-view-override-">GA.view(override)</h3>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/pages">Page Tracking</a></p>
 <ul>
-<li>category - Typically the object that was interacted with (e.g. button) - required</li>
-<li>action - The type of interaction (e.g. click) - required</li>
-<li>label - Useful for categorizing events (e.g. nav buttons)</li>
-<li>value - Values must be non-negative. Useful to pass counts (e.g. 4 times)</li>
+<li>override (string/object) - Either a string to override the default page or an object to override the title/location as well</li>
 </ul>
-<p>Custom event tracking (<a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events">https://developers.google.com/analytics/devguides/collection/analyticsjs/events</a>)</p>
+<h3 id="ga-event-category-action-label-value-fields-">GA.event(category, action, label, value, fields)</h3>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events">Event Tracking</a></p>
+<ul>
+<li>category (string) - Typically the object that was interacted with (e.g. button) - required</li>
+<li>action (string) - The type of interaction (e.g. click) - required</li>
+<li>label (string) - Useful for categorizing events (e.g. nav buttons)</li>
+<li>value (number) - Values must be non-negative. Useful to pass counts (e.g. 4 times)</li>
+<li>fields (object) - The field object is a standard JavaScript object, but defines specific field names and values accepted by analytics.js</li>
+</ul>
+<h3 id="ga-social-network-action-target-fields-">GA.social(network, action, target, fields)</h3>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/social-interactions">Social Interactions</a></p>
+<ul>
+<li>network (string) - The network on which the action occurs (e.g. Facebook, Twitter) - required</li>
+<li>action (string) - The type of action that happens (e.g. Like, Send, Tweet) - required</li>
+<li>target (string) - Specifies the target of a social interaction. This value is typically a URL but can be any text (e.g. <a href="http://mycoolpage.com">http://mycoolpage.com</a>) - required</li>
+<li>fields (number) - The field object is a standard JavaScript object, but defines specific field names and values accepted by analytics.js</li>
+</ul>
+<h3 id="ga-timing-category-action-label-value-fields-">GA.timing(category, action, label, value, fields)</h3>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/user-timings">User Timings</a></p>
+<ul>
+<li>category (string) - A string for categorizing all user timing variables into logical groups (e.g jQuery) - required</li>
+<li>var (string) - A string to identify the variable being recorded. (e.g. JavaScript Load) - required</li>
+<li>value (number) - The number of milliseconds in elapsed time to report to Google Analytics (e.g. 20) - required</li>
+<li>label (string) - A string that can be used to add flexibility in visualizing user timings in the reports (e.g. Google CDN)</li>
+<li>fields (number) - The field object is a standard JavaScript object, but defines specific field names and values accepted by analytics.js</li>
+</ul>
+<h2 id="ecommerce">Ecommerce</h2>
+<h3 id="ga-ecomtran-data-">GA.ecomTran(data)</h3>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addTrans">Adding a Transaction</a></p>
+<ul>
+<li>data (object) - an object with the following attributes:<ul>
+<li>id (string) - The transaction ID (e.g. 1234) - required</li>
+<li>affiliation (string) - The store or affiliation from which this transaction occurred (e.g. Acme Clothing)</li>
+<li>revenue (currency) - Specifies the total revenue / grand total associated with the transaction. This value should include any shipping or tax costs (e.g. 11.99)</li>
+<li>shipping (currency) - Specifies the total shipping cost of the transaction (e.g. 5)</li>
+<li>tax (currency) - Specifies the total tax of the transaction (e.g. 1.29)</li>
+</ul>
+</li>
+</ul>
+<h3 id="ga-ecomitem-data-">GA.ecomItem(data)</h3>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#addItem">Adding Items</a></p>
+<ul>
+<li>data (object) - an object with the following attributes:<ul>
+<li>id (string) - The transaction ID (e.g. 1234) - required</li>
+<li>name (string) - The item name (e.g. Fluffy Pink Bunnies) - required</li>
+<li>sku (string) - Specifies the SKU or item code (e.g. SKU47)</li>
+<li>category (string) - The category to which the item belongs (e.g. Party Toys)</li>
+<li>price (currency) - The individual, unit, price for each item (e.g. 11.99)</li>
+<li>quantity (currency) - The number of units purchased in the transaction (e.g. 1)</li>
+</ul>
+</li>
+</ul>
+<h3 id="ga-ecomsend-">GA.ecomSend()</h3>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#sendingData">Sending Data</a></p>
+<h3 id="ga-ecomclear-">GA.ecomClear()</h3>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce#clearingData">Clearing Data</a></p>
+<h2 id="advanced-usage">Advanced Usage</h2>
+<h3 id="ga-newtracker-config-">GA.newTracker(config)</h3>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#multipletrackers">Multiple Trackers</a></p>
+<ul>
+<li>config (object) - An object the same that would be specified in requirejs.config.config.GA</li>
+</ul>
+<h3 id="ga-set-field-value-">GA.set(field, value)</h3>
+<p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#general">Fields</a></p>
+<ul>
+<li>field (string/object) - Either a string containing the name of a field or a mapping of fields and values - required</li>
+<li>value (any) - the value of the field</li>
+</ul>
+<h3 id="-create-only-fields-https-developers-google-com-analytics-devguides-collection-analyticsjs-field-reference-create-"><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#create">Create Only Fields</a></h3>
+<pre><code class="lang-javascript">requirejs.config({
+    config: {
+        &#39;GA&#39;: {
+            &#39;id&#39; : &#39;ACCOUNT_ID&#39;,
+            &#39;fields&#39;: {
+                // Create only fields go here:
+                name: &#39;myTracker&#39;
+            }
+        }
+    },
+    paths: {
+        EventEmitter: &#39;bower_components/event-emitter/dist/EventEmitter&#39;
+        GA: &#39;bower_components/requirejs-google-analytics/dist/GoogleAnalytics&#39;
+    }
+});</code></pre>
+<h3 id="-experiments-https-developers-google-com-analytics-devguides-collection-analyticsjs-experiments-"><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/experiments">Experiments</a></h3>
+<pre><code class="lang-javascript">requirejs.config({
+    config: {
+        &#39;GA&#39;: {
+            &#39;id&#39; : &#39;ACCOUNT_ID&#39;,
+            // Experiment ID and Var go here:
+            &#39;expId&#39; : $expermentId,
+            &#39;expVar&#39; : $expermentVar,
+        }
+    },
+    paths: {
+        EventEmitter: &#39;bower_components/event-emitter/dist/EventEmitter&#39;
+        GA: &#39;bower_components/requirejs-google-analytics/dist/GoogleAnalytics&#39;
+    }
+});</code></pre>
 
   </body>
 </html>
