@@ -54,8 +54,7 @@ require(['GA'], function (GA) {
 
 [Page Tracking](https://developers.google.com/analytics/devguides/collection/analyticsjs/pages)
 
-* override (string/object) - Either a string to override the default page or an object to override the title/location as well
-
+* override (string/object) - Either a string to override the default page or an object to override the page/title/location
 ### GA.event(category, action, label, value, fields)
 
 [Event Tracking](https://developers.google.com/analytics/devguides/collection/analyticsjs/events)
@@ -64,7 +63,7 @@ require(['GA'], function (GA) {
 * action (string) - The type of interaction (e.g. click) - required
 * label (string) - Useful for categorizing events (e.g. nav buttons)
 * value (number) - Values must be non-negative. Useful to pass counts (e.g. 4 times)
-* fields (object) - The field object is a standard JavaScript object, but defines specific field names and values accepted by analytics.js
+* fields (object) - Defines specific field names and values accepted by analytics.js
 
 ### GA.social(network, action, target, fields)
 
@@ -73,7 +72,7 @@ require(['GA'], function (GA) {
 * network (string) - The network on which the action occurs (e.g. Facebook, Twitter) - required
 * action (string) - The type of action that happens (e.g. Like, Send, Tweet) - required
 * target (string) - Specifies the target of a social interaction. This value is typically a URL but can be any text (e.g. http://mycoolpage.com) - required
-* fields (number) - The field object is a standard JavaScript object, but defines specific field names and values accepted by analytics.js
+* fields (object) - Defines specific field names and values accepted by analytics.js
 
 ### GA.timing(category, action, label, value, fields)
 
@@ -83,7 +82,7 @@ require(['GA'], function (GA) {
 * var (string) - A string to identify the variable being recorded. (e.g. JavaScript Load) - required
 * value (number) - The number of milliseconds in elapsed time to report to Google Analytics (e.g. 20) - required
 * label (string) - A string that can be used to add flexibility in visualizing user timings in the reports (e.g. Google CDN)
-* fields (number) - The field object is a standard JavaScript object, but defines specific field names and values accepted by analytics.js
+* fields (object) - Defines specific field names and values accepted by analytics.js
 
 ## Ecommerce
 
