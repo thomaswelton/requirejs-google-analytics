@@ -55,6 +55,7 @@ require(['GA'], function (GA) {
 [Page Tracking](https://developers.google.com/analytics/devguides/collection/analyticsjs/pages)
 
 * override (string/object) - Either a string to override the default page or an object to override the page/title/location
+
 ### GA.event(category, action, label, value, fields)
 
 [Event Tracking](https://developers.google.com/analytics/devguides/collection/analyticsjs/events)
