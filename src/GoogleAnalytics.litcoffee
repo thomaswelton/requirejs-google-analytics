@@ -7,6 +7,18 @@ Strict helps to trap more potential bugs.
 
     'use strict'
 
+Load
+[Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
+using requirejs.
+Feel free to just use this snippet for a lightweight implementation.
+
+    require.config
+        paths:
+            'ga': '//www.google-analytics.com/analytics'
+        shim:
+            'ga':
+                exports: 'ga'
+
 `module` is used to retrieve the
 [configuration](http://requirejs.org/docs/api.html#config-moduleconfig) and
 [EventEmitter](https://github.com/thomaswelton/bower-event-emitter) is used
@@ -39,7 +51,7 @@ Set the chosen variation for the Visitor for
 
                 unless @config.ga
                     # Load the actual Google Analytics library
-                    require ['//www.google-analytics.com/analytics'], (@ga) =>
+                    require ['ga'], (@ga) =>
                         @fireEvent 'ready', @ga
                 else
                     @ga = @config.ga

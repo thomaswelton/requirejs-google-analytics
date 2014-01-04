@@ -189,7 +189,7 @@ module.exports = (grunt) =>
                     mainConfigFile: '<%= pkg.temp %>/main.js'
                     out: '<%= pkg.temp %>/optimized.js'
                     optimize: 'none'
-                    findNestedDependencies: true
+                    findNestedDependencies: false # Does not work with this enabled
 
         # grunt-contrib-watch: https://github.com/gruntjs/grunt-contrib-watch
         # Run predefined tasks whenever watched file patterns are added, changed or deleted.

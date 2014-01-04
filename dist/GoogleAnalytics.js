@@ -5,6 +5,17 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __slice = [].slice;
 
+  require.config({
+    paths: {
+      'ga': '//www.google-analytics.com/analytics'
+    },
+    shim: {
+      'ga': {
+        exports: 'ga'
+      }
+    }
+  });
+
   define(['module', 'EventEmitter'], function(module, EventEmitter) {
     var GoogleAnalytics;
     GoogleAnalytics = (function(_super) {
@@ -43,7 +54,7 @@
         }
         this.view();
         if (!this.config.ga) {
-          require(['//www.google-analytics.com/analytics'], function(ga) {
+          require(['ga'], function(ga) {
             _this.ga = ga;
             return _this.fireEvent('ready', _this.ga);
           });
