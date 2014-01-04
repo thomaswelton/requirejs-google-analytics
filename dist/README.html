@@ -135,7 +135,7 @@
 <p>Installation via bower</p>
 <pre><code class="lang-json">{
   &quot;dependencies&quot;: {
-      &quot;requirejs-google-analytics&quot;: &quot;~0.1.6&quot;
+      &quot;requirejs-google-analytics&quot;: &quot;~0.1.7&quot;
   }
 }</code></pre>
 <h2 id="usage">Usage</h2>
@@ -152,7 +152,7 @@
 <h3 id="ga-view-override-">GA.view(override)</h3>
 <p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/pages">Page Tracking</a></p>
 <ul>
-<li>override (string/object) - Either a string to override the default page or an object to override the title/location as well</li>
+<li>override (string/object) - Either a string to override the default page or an object to override the page/title/location</li>
 </ul>
 <h3 id="ga-event-category-action-label-value-fields-">GA.event(category, action, label, value, fields)</h3>
 <p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events">Event Tracking</a></p>
@@ -161,7 +161,7 @@
 <li>action (string) - The type of interaction (e.g. click) - required</li>
 <li>label (string) - Useful for categorizing events (e.g. nav buttons)</li>
 <li>value (number) - Values must be non-negative. Useful to pass counts (e.g. 4 times)</li>
-<li>fields (object) - The field object is a standard JavaScript object, but defines specific field names and values accepted by analytics.js</li>
+<li>fields (object) - Defines specific field names and values accepted by analytics.js</li>
 </ul>
 <h3 id="ga-social-network-action-target-fields-">GA.social(network, action, target, fields)</h3>
 <p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/social-interactions">Social Interactions</a></p>
@@ -169,7 +169,7 @@
 <li>network (string) - The network on which the action occurs (e.g. Facebook, Twitter) - required</li>
 <li>action (string) - The type of action that happens (e.g. Like, Send, Tweet) - required</li>
 <li>target (string) - Specifies the target of a social interaction. This value is typically a URL but can be any text (e.g. <a href="http://mycoolpage.com">http://mycoolpage.com</a>) - required</li>
-<li>fields (number) - The field object is a standard JavaScript object, but defines specific field names and values accepted by analytics.js</li>
+<li>fields (object) - Defines specific field names and values accepted by analytics.js</li>
 </ul>
 <h3 id="ga-timing-category-action-label-value-fields-">GA.timing(category, action, label, value, fields)</h3>
 <p><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/user-timings">User Timings</a></p>
@@ -178,7 +178,7 @@
 <li>var (string) - A string to identify the variable being recorded. (e.g. JavaScript Load) - required</li>
 <li>value (number) - The number of milliseconds in elapsed time to report to Google Analytics (e.g. 20) - required</li>
 <li>label (string) - A string that can be used to add flexibility in visualizing user timings in the reports (e.g. Google CDN)</li>
-<li>fields (number) - The field object is a standard JavaScript object, but defines specific field names and values accepted by analytics.js</li>
+<li>fields (object) - Defines specific field names and values accepted by analytics.js</li>
 </ul>
 <h2 id="ecommerce">Ecommerce</h2>
 <h3 id="ga-ecomtran-data-">GA.ecomTran(data)</h3>

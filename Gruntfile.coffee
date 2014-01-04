@@ -147,6 +147,13 @@ module.exports = (grunt) =>
                         '<%= pkg.temp %>'
                     ]
 
+        # grunt-contrib-copy: https://github.com/gruntjs/grunt-contrib-copy
+        # Copy files and folders.
+        copy:
+            eventEmitter:
+                src: 'bower_components/event-emitter/dist/EventEmitter.js'
+                dest: '.tmp/event-emitter/dist/EventEmitter.js'
+
         # grunt-contrib-jshint: https://github.com/gruntjs/grunt-contrib-jshint
         # Validate files with JSHint.
         jshint:
@@ -171,6 +178,17 @@ module.exports = (grunt) =>
             all:
                 options:
                     urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
+
+        # grunt-contrib-requirejs https://github.com/gruntjs/grunt-contrib-requirejs
+        # Optimize RequireJS projects using r.js.
+        requirejs:
+            test:
+                options:
+                    name: 'main'
+                    baseUrl: '<%= pkg.temp %>'
+                    mainConfigFile: '<%= pkg.temp %>/main.js'
+                    out: '<%= pkg.temp %>/optimized.js'
+                    optimize: 'none'
 
         # grunt-contrib-watch: https://github.com/gruntjs/grunt-contrib-watch
         # Run predefined tasks whenever watched file patterns are added, changed or deleted.
@@ -226,6 +244,8 @@ module.exports = (grunt) =>
         'coffeelint'
         'jshint'
         'test'
+        'copy'
+        'requirejs'
         'build'
     ]
 

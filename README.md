@@ -30,7 +30,7 @@ Installation via bower
 ```json
 {
   "dependencies": {
-  	"requirejs-google-analytics": "~0.1.6"
+  	"requirejs-google-analytics": "~0.1.7"
   }
 }
 ```
