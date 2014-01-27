@@ -40,19 +40,16 @@
         this.__ga = __bind(this.__ga, this);
         this.ready = __bind(this.ready, this);
         GoogleAnalytics.__super__.constructor.call(this);
-        if (!(this.config.fields && this.config.fields.name)) {
-          console.log('GA: Created tracker for ' + this.config.id);
-        } else {
-          console.log('GA: Created ' + this.config.fields.name + ' for ' + this.config.id);
+        if (this.config.id != null) {
+          this.create(this.config.id, this.config.fields);
+          if (this.config.expId) {
+            this.set('expId', this.config.expId);
+          }
+          if (this.config.expVar) {
+            this.set('expVar', this.config.expVar);
+          }
+          this.view();
         }
-        this.create(this.config.id, this.config.fields);
-        if (this.config.expId) {
-          this.set('expId', this.config.expId);
-        }
-        if (this.config.expVar) {
-          this.set('expVar', this.config.expVar);
-        }
-        this.view();
         if (!this.config.ga) {
           require(['ga'], function(ga) {
             _this.ga = ga;

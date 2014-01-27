@@ -32,22 +32,18 @@ for holding an event queue whilst Google Analytics downloads.
 
                 super()
 
-                unless @config.fields and @config.fields.name
-                    console.log 'GA: Created tracker for ' + @config.id
-                else
-                    console.log 'GA: Created ' + @config.fields.name + ' for ' + @config.id
-
-                @create @config.id, @config.fields
+                if @config.id?
+                    @create @config.id, @config.fields
 
 Set the chosen variation for the Visitor for
 [experiments](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#experiments).
 
-                if @config.expId # The id of the experiment the user has been exposed to.
-                    @set 'expId', @config.expId
-                if @config.expVar # The index of the variation shown to the visitor.
-                    @set 'expVar', @config.expVar
+                    if @config.expId # The id of the experiment the user has been exposed to.
+                        @set 'expId', @config.expId
+                    if @config.expVar # The index of the variation shown to the visitor.
+                        @set 'expVar', @config.expVar
 
-                @view()
+                    @view()
 
                 unless @config.ga
                     # Load the actual Google Analytics library
