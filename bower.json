@@ -1,6 +1,6 @@
 {
   "name": "requirejs-google-analytics",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "main": [
     "dist/GoogleAnalytics.js"
   ],
