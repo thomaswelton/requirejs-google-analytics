@@ -1,5 +1,6 @@
 {
   "name": "requirejs-google-analytics",
+  "license": "MIT",
   "version": "0.1.11",
   "main": [
     "dist/GoogleAnalytics.js"
