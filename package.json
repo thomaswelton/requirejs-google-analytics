@@ -1,16 +1,13 @@
 {
   "name": "requirejs-google-analytics",
   "description": "Google Analytics loader",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "scripts": {
     "test": "grunt travis --verbose"
   },
-  "engines": {
-    "node": ">=0.8"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thomaswelton/requirejs-google-analytics.git"
+    "url": "https://github.com/cdanea/requirejs-google-analytics.git"
   },
   "devDependencies": {
     "bower": "~1.2.7",
