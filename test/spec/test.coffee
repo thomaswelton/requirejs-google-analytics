@@ -53,6 +53,15 @@ define ['GA'], (GA) ->
                 assert.equal true, gaSpy2.getCall(2).calledWith('set', 'expVar', 'bar')
                 assert.equal true, gaSpy2.getCall(3).calledWith('send', 'pageview')
 
+            it 'should allow the automatic pageview to be disabled', ->
+                gaSpy2 = sinon.spy()
+                GA2 = GA.newTracker
+                    id: 'UA-SECOND-TRACKER'
+                    ga: gaSpy2
+                    noAutoView: true
+                assert.calledOnce gaSpy2
+                assert.equal true, gaSpy2.getCall(0).calledWith('create', 'UA-SECOND-TRACKER')
+
 
         describe 'newTracker', ->
             it 'should return a new tracker', ->

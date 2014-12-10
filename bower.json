@@ -1,15 +1,15 @@
 {
   "name": "requirejs-google-analytics",
   "license": "MIT",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "main": [
     "dist/GoogleAnalytics.js"
   ],
   "devDependencies": {
-    "chai": "~1.8.1",
-    "mocha": "~1.14.0",
-    "requirejs": "~2.1.9",
-    "sinonjs": "~1.7.3"
+    "chai": "*",
+    "mocha": "*",
+    "requirejs": "*",
+    "sinonjs": "*"
   },
   "dependencies": {
     "event-emitter": "0.1.0"
