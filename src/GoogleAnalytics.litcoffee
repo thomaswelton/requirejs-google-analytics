@@ -43,9 +43,9 @@ Set the chosen variation for the Visitor for
                     if @config.expVar # The index of the variation shown to the visitor.
                         @set 'expVar', @config.expVar
 
-Allow for SPA apps to take full control of the views they send
-By forcing the loaded HTML substrate to be reported at whatever URI it was requested there can be duplicates and even zombies reported by mistake
-                    @view() if @config.viewOnLoad
+Send a page view automatically, specify `noAutoView: true` to disable.
+
+                    @view() if not @config.noAutoView
 
                 unless @config.ga
                     # Load the actual Google Analytics library
